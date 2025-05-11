@@ -3,6 +3,8 @@ using ProjectBlack.Authorization.Roles;
 using ProjectBlack.Authorization.Users;
 using ProjectBlack.MultiTenancy;
 using Microsoft.EntityFrameworkCore;
+using ProjectBlack.CreditRequests;
+
 
 namespace ProjectBlack.EntityFrameworkCore;
 
@@ -14,4 +16,6 @@ public class ProjectBlackDbContext : AbpZeroDbContext<Tenant, Role, User, Projec
         : base(options)
     {
     }
+    public DbSet<CreditRequest> CreditRequests { get; set; }
+
 }
