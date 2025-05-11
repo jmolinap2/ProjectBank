@@ -42,7 +42,7 @@ Este proyecto es una solución completa para la gestión de solicitudes de créd
    cd angular-app
 
 2. Instalar dependencias:
-   npm install
+   yarn install --force
 
 3. Ejecutar aplicación Angular:
    ng serve
