@@ -32,6 +32,14 @@ yarn-error.log*
 .env.local
 *.code-workspace
 
-# === SISTEMA OPERATIVO ===
-.DS_Store
-Thumbs.db
+# === Defecto ===
+
+# IDEs and editors
+.vs/
+obj/
+bin/
+aspnet-core/src/ProjectBlack.Web.Host/App_Data/Logs/
+aspnet-core/src/ProjectBlack.Web.Mvc/App_Data/Logs/
+aspnet-core/src/ProjectBlack.Migrator/Logs/Logs.txt
+aspnet-core/build/outputs/
+aspnet-core/docker/mvc/Mvc-Logs/
