@@ -4,6 +4,11 @@ using Abp.Domain.Repositories;
 using ProjectBlack.CreditRequests.Dtos;
 using System.Threading.Tasks;
 using ProjectBlack.Authorization;
+using Abp.Application.Services.Dto;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace ProjectBlack.CreditRequests
 {
@@ -40,5 +45,15 @@ namespace ProjectBlack.CreditRequests
             entity.Estado = CreditStatus.Rechazado;
             await Repository.UpdateAsync(entity);
         }
+        [AbpAuthorize(PermissionNames.Pages_Analyst)]
+        public async Task<ListResultDto<CreditRequestDto>> GetByEstadoAsync(string estado)
+        {
+            var items = await Repository.GetAll()
+                .Where(x => x.Estado.ToString() == estado)
+                .ToListAsync();
+
+            return new ListResultDto<CreditRequestDto>(ObjectMapper.Map<List<CreditRequestDto>>(items));
+        }
+
     }
 }
