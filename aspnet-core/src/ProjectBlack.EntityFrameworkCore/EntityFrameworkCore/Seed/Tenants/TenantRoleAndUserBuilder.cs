@@ -38,6 +38,16 @@ public class TenantRoleAndUserBuilder
             adminRole = _context.Roles.Add(new Role(_tenantId, StaticRoleNames.Tenants.Admin, StaticRoleNames.Tenants.Admin) { IsStatic = true }).Entity;
             _context.SaveChanges();
         }
+        var analystRole = _context.Roles.FirstOrDefault(r => r.TenantId == _tenantId && r.Name == StaticRoleNames.Tenants.Analyst);
+        if (analystRole == null)
+        {
+            analystRole = _context.Roles.Add(
+                new Role(_tenantId, StaticRoleNames.Tenants.Analyst, StaticRoleNames.Tenants.Analyst)
+                { IsStatic = true }
+            ).Entity;
+            _context.SaveChanges();
+        }
+
 
         // Grant all permissions to admin role
 
