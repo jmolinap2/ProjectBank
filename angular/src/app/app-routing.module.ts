@@ -40,9 +40,17 @@ import { AppComponent } from './app.component';
                     },
                     {
                         path: 'update-password',
-                        loadChildren: () => import('./users/users.module').then((m) => m.UsersModule),
+                        loadChildren: () =>
+                            import('./users/users.module').then((m) => m.UsersModule),
                         canActivate: [AppRouteGuard]
                     },
+                    {
+                        path: 'credit-requests',
+                        loadChildren: () =>
+                            import('./credit-requests/credit-requests.module').then(m => m.CreditRequestsModule),
+                            canActivate: [AppRouteGuard],
+                        },
+
                 ]
             }
         ])
