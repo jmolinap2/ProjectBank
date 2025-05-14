@@ -116,12 +116,12 @@
     <text name="Clear">Borrar</text>
     <text name="ResetPasswordStepOneInfo">1. Ingrese su contraseña de administrador</text>
     <text name="ResetPasswordStepTwoInfo">2. Copie esta contraseña aleatoria para poder enviársela al usuario</text>
+    
     <text name="Analyst">Analista</text>
     <text name="MyCreditRequests">Mis Solicitudes de Crédito</text>
-    <text name="CreateCreditRequest">Nueva Solicitud</text>
     <text name="AnalystRequests">Solicitudes (Analista)</text>
     <text name="CreditRequests">Solicitudes de Crédito</text>
-    <text name="About">Acerca del sistema</text>
+    <text name="About_Sys">Acerca del sistema</text>
     <text name="Module_CreditRequests">Módulo de Solicitudes de Crédito</text>
     <text name="UserType_Applicant">Solicitante</text>
     <text name="UserType_Analyst">Analista</text>

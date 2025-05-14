@@ -116,6 +116,7 @@
     <text name="Clear">Clear</text>
     <text name="ResetPasswordStepOneInfo">1. Enter your administrator password</text>
     <text name="ResetPasswordStepTwoInfo">2. Copy this random password so you can send it to the user</text>
+    
     <text name="UsersActivation">Users activation</text>
     <text name="403PageHeader">Forbidden</text>
     <text name="403PageDescription">You don't have permission to access this resource. Please contact your administrator.</text>
@@ -125,7 +126,7 @@
     <text name="CreateCreditRequest">New Credit Request</text>
     <text name="AnalystRequests">Requests (Analyst)</text>
     <text name="CreditRequests">Credit Requests</text>
-    <text name="About">About the system</text>
+    <text name="About_Sys">About the system</text>
     <text name="Module_CreditRequests">Credit Request Module</text>
     <text name="UserType_Applicant">Applicant</text>
     <text name="UserType_Analyst">Analyst</text>
