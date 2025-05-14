@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<localizationDictionary culture="es">
+<localizationDictionary culture="es-MX">
   <texts>
     <text name="HomePage" value="Página de inicio" />
     <text name="About" value="Acerca de" />
@@ -121,6 +121,18 @@
     <text name="CreateCreditRequest">Nueva Solicitud</text>
     <text name="AnalystRequests">Solicitudes (Analista)</text>
     <text name="CreditRequests">Solicitudes de Crédito</text>
+    <text name="About">Acerca del sistema</text>
+    <text name="Module_CreditRequests">Módulo de Solicitudes de Crédito</text>
+    <text name="UserType_Applicant">Solicitante</text>
+    <text name="UserType_Analyst">Analista</text>
+    <text name="AutoEvaluationLogic">Evaluación automática</text>
+    <text name="CreditRequestIntro">Permite crear, visualizar y aprobar/rechazar solicitudes de crédito en línea.</text>
+    <text name="CreateCreditRequest">Nueva Solicitud de Crédito</text>
+    <text name="MontoSolicitado">Monto Solicitado</text>
+    <text name="PlazoMeses">Plazo en Meses</text>
+    <text name="IngresoMensual">Ingreso Mensual</text>
+    <text name="AntiguedadLaboralMeses">Antigüedad Laboral (meses)</text>
+    <text name="EnviarSolicitud">Enviar solicitud</text>
 
 
   </texts>

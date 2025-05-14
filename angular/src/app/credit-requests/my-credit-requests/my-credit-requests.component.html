@@ -25,6 +25,13 @@
       <td>{{ item.ingresoMensual }}</td>
       <td>{{ item.antiguedadLaboral }}</td>
       <td>{{ item.estado }}</td>
+      <td>
+  <button *ngIf="item.estado === 'Pendiente'" class="btn btn-sm btn-warning"
+          (click)="editRequest(item.id)">
+    <i class="fa fa-edit"></i> Editar
+  </button>
+</td>
+
     </tr>
   </tbody>
 </table>

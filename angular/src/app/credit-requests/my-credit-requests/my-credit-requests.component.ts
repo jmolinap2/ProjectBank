@@ -3,10 +3,7 @@ import { CreditRequestDto, CreditRequestServiceProxy } from '@shared/service-pro
 import { AppComponentBase } from '@shared/app-component-base';
 import { finalize } from 'rxjs/operators';
 import { ChangeDetectorRef } from '@angular/core';
-import { AppSessionService } from '@shared/session/app-session.service';
-import { PermissionCheckerService } from 'abp-ng2-module';
-
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-credit-requests',
@@ -16,10 +13,12 @@ import { PermissionCheckerService } from 'abp-ng2-module';
 export class MyCreditRequestsComponent extends AppComponentBase implements OnInit {
   creditRequests: CreditRequestDto[] = [];
   isAnalyst = false;
+
   constructor(
     injector: Injector,
     private _creditRequestService: CreditRequestServiceProxy,
     private cdr: ChangeDetectorRef,
+    private _router: Router
   ) {
     super(injector);
   }
@@ -27,6 +26,10 @@ export class MyCreditRequestsComponent extends AppComponentBase implements OnIni
   ngOnInit(): void {
     this.isAnalyst = this.permission.isGranted('Pages.Analyst');
     this.getCreditRequests();
+  }
+
+  editRequest(id: number): void {
+    this._router.navigate(['/app/credit-requests/create', id]);
   }
 
   getCreditRequests(): void {

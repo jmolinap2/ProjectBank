@@ -22,6 +22,11 @@ const routes = [
   component: AnalystCreditRequestsComponent,
   canActivate: [AppRouteGuard],
   data: { permission: 'Pages.Analyst' }
+  },
+  {
+  path: 'create/:id',
+  component: CreateCreditRequestComponent,
+  canActivate: [AppRouteGuard]
 }
 
 ];

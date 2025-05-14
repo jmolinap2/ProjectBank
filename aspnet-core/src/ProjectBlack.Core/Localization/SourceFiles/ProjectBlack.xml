@@ -125,6 +125,13 @@
     <text name="CreateCreditRequest">New Credit Request</text>
     <text name="AnalystRequests">Requests (Analyst)</text>
     <text name="CreditRequests">Credit Requests</text>
+    <text name="About">About the system</text>
+    <text name="Module_CreditRequests">Credit Request Module</text>
+    <text name="UserType_Applicant">Applicant</text>
+    <text name="UserType_Analyst">Analyst</text>
+    <text name="AutoEvaluationLogic">Automatic Evaluation</text>
+    <text name="CreditRequestIntro">Allows creating, viewing, and approving/rejecting credit requests online.</text>
+    
 
   </texts>
 </localizationDictionary>

@@ -6,6 +6,7 @@ import {
   CreditRequestDtoListResultDto
 } from '@shared/service-proxies/service-proxies';
 import { finalize } from 'rxjs/operators';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-analyst-credit-requests',
@@ -17,7 +18,8 @@ export class AnalystCreditRequestsComponent extends AppComponentBase implements 
 
   constructor(
     injector: Injector,
-    private service: CreditRequestServiceProxy
+    private service: CreditRequestServiceProxy,
+        private cdr: ChangeDetectorRef,
   ) {
     super(injector);
   }
@@ -27,11 +29,12 @@ export class AnalystCreditRequestsComponent extends AppComponentBase implements 
   }
 
   obtenerSolicitudes(): void {
-    abp.ui.setBusy(); // Activa spinner de ABP
+    abp.ui.setBusy(); 
     this.service.getByEstado(this.estado)
-      .pipe(finalize(() => abp.ui.clearBusy())) // Desactiva spinner de ABP
+      .pipe(finalize(() => abp.ui.clearBusy()))
       .subscribe((result: CreditRequestDtoListResultDto) => {
         this.solicitudes = result.items || [];
+        this.cdr.detectChanges();
       });
   }
 

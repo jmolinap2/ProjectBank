@@ -12,123 +12,52 @@
     <div class="container-fluid">
       <div class="card">
         <div class="card-body">
+
           <p>
-            This is a simple startup template based on ASP.NET Boilerplate
-            framework and Module Zero. If you need an enterprise startup
-            project, check
-            <a href="http://aspnetzero.com?ref=abptmpl" target="_blank">
-              ASP.NET ZERO </a
-            >.
+            Esta aplicación ha sido desarrollada como parte de una prueba técnica, tomando como base la plantilla
+            de inicio de <strong>ASP.NET Boilerplate</strong>. Se ha personalizado y extendido para cumplir con los
+            requisitos funcionales y técnicos de un módulo de <strong>solicitudes de crédito en línea</strong>.
           </p>
-          <h3>What is ASP.NET Boilerplate?</h3>
+
+          <h3>Módulo de Solicitudes de Crédito</h3>
           <p>
-            ASP.NET Boilerplate is an application framework built on latest
-            <strong>ASP.NET Core</strong> framework. It makes easy to use
-            authorization, dependency injection, validation, exception handling,
-            localization, logging, caching, background jobs and so on. It's
-            built on already familiar tools like Entity Framework, AutoMapper,
-            Castle Windsor...
+            El sistema cuenta con dos tipos de usuario:
           </p>
-          <p>
-            ASP.NET Boilerplate implements
-            <strong>NLayer architecture</strong> (Domain, Application,
-            Infrastructure and Presentation Layers) and
-            <strong>Domain Driven Design</strong> (Entities, Repositories,
-            Domain/Application Services, DTO's...). Also implements and provides
-            a good infrastructure to implement common software development
-            <strong>best practices</strong>.
-          </p>
-          <h3>What is Module Zero?</h3>
-          <p>
-            ASP.NET Boilerplate framework is designed to be independent of any
-            database schema and to be as generic as possible. Therefore, It
-            leaves some concepts
-            <strong>abstract</strong> and <strong>optional</strong> (like audit
-            logging, permission and setting stores) which requires some
-            <strong>data store</strong>.
-          </p>
-          <p>
-            <strong>Module Zero </strong>implements all fundamental concepts of
-            ASP.NET Boilerplate framework such as
-            <a
-              href="http://www.aspnetboilerplate.com/Pages/Documents/Zero/Tenant-Management"
-              >tenant management</a
-            >
-            (<strong>multi-tenancy</strong>),
-            <a
-              href="http://www.aspnetboilerplate.com/Pages/Documents/Zero/Role-Management"
-            >
-              role management </a
-            >,
-            <a
-              href="http://www.aspnetboilerplate.com/Pages/Documents/Zero/User-Management"
-              >user management</a
-            >,
-            <a
-              href="http://www.aspnetboilerplate.com/Pages/Documents/Authorization"
-              >authorization</a
-            >
-            (<a
-              href="http://www.aspnetboilerplate.com/Pages/Documents/Zero/Permission-Management"
-            >
-              permission management </a
-            >),
-            <a
-              href="http://www.aspnetboilerplate.com/Pages/Documents/Setting-Management"
-              >setting management</a
-            >,
-            <a
-              href="http://www.aspnetboilerplate.com/Pages/Documents/Zero/Language-Management"
-            >
-              language management </a
-            >,
-            <a
-              href="http://www.aspnetboilerplate.com/Pages/Documents/Audit-Logging"
-              >audit logging</a
-            >
-            and so on.
-          </p>
-          <p>
-            Module-Zero defines entities and implements
-            <strong>domain logic</strong>
-            (domain layer) and leaves application and presentation layers to
-            you.
-          </p>
-          <h4>Based on Microsoft ASP.NET Core Identity</h4>
-          <p>
-            Module Zero is based on Microsoft's
-            <a
-              href="https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity"
-              target="_blank"
-              >ASP.NET Core Identity</a
-            >
-            library. It extends user and role managers and implements user and
-            role stores using generic repositories.
-          </p>
-          <h3>Documentation</h3>
           <ul>
-            <li>
-              <a
-                href="https://www.aspnetboilerplate.com/Pages/Documents/Zero/Startup-Template-Core"
-                >Documentation for this template</a
-              >
-            </li>
-            <li>
-              <a href="http://www.aspnetboilerplate.com/Pages/Documents"
-                >ASP.NET Boilerplate documentation</a
-              >
-            </li>
+            <li><strong>Solicitante:</strong> puede registrarse, iniciar sesión, crear nuevas solicitudes y consultar su historial personal.</li>
+            <li><strong>Analista:</strong> tiene acceso a todas las solicitudes, con capacidad para filtrarlas por estado y aprobar o rechazar según corresponda.</li>
           </ul>
-          <h3>Source code</h3>
+
           <p>
-            This template is developed open source on Github. You can contribute
-            to the template.
-            <a
-              href="https://github.com/aspnetboilerplate/module-zero-core-template"
-              target="_blank"
-              >https://github.com/aspnetboilerplate/module-zero-core-template</a
-            >
+            Por defecto, al levantar el sistema por primera vez, se crea automáticamente el <strong>rol de analista</strong>. Un usuario administrador puede asignar este rol a cualquier otro usuario desde la pantalla de administración de usuarios.
           </p>
+
+          <p>
+            Una vez asignado, el usuario verá en el menú lateral la opción <strong>“Solicitudes (Analista)”</strong>, desde donde podrá acceder a todas las solicitudes registradas y gestionar su estado.
+          </p>
+
+          <p>
+            Las solicitudes tienen un estado inicial determinado automáticamente por el sistema según el ingreso mensual:
+            <ul>
+              <li>Si el ingreso mensual es igual o mayor a $1500 → el estado inicial será <strong>Aprobado</strong>.</li>
+              <li>En caso contrario, el estado inicial será <strong>Pendiente</strong>.</li>
+            </ul>
+          
+          <p>
+            Como medida de integridad, el sistema no permite que un analista apruebe sus propias solicitudes (se valida por usuario).
+          </p>
+
+          <h4>Base tecnológica</h4>
+          <ul>
+            <li>Frontend: Angular</li>
+            <li>Backend: ASP.NET Core (Boilerplate)</li>
+            <li>Autenticación: JWT</li>
+            <li>Auditoría automática y validación de roles integrada</li>
+          </ul>
+
+          <h4>Repositorio y documentación</h4>
+          <p>La solución debe incluir README.md con instrucciones de instalación, ejecución y credenciales por defecto.</p>
+
         </div>
       </div>
     </div>
