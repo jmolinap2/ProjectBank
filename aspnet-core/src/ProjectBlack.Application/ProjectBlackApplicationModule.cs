@@ -27,8 +27,14 @@ public class ProjectBlackApplicationModule : AbpModule
         {
             // Scan the assembly for classes which inherit from AutoMapper.Profile
             cfg.AddMaps(thisAssembly);
+
+            // Entidad → DTO (lectura): todo mapeado
             cfg.CreateMap<CreditRequest, CreditRequestDto>();
-            cfg.CreateMap<CreditRequestDto, CreditRequest>();
+
+            // DTO → Entidad (update): proteger campos auditables
+            cfg.CreateMap<CreditRequestDto, CreditRequest>()
+               .ForMember(dest => dest.CreationTime, opt => opt.Ignore())
+               .ForMember(dest => dest.CreatorUserId, opt => opt.Ignore());
         });
     }
 }

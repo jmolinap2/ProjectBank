@@ -120,5 +120,18 @@ namespace ProjectBlack.CreditRequests
 
             return new ListResultDto<CreditRequestDto>(dtos);
         }
+        public override async Task DeleteAsync(EntityDto<long> input)
+        {
+            var entity = await Repository.GetAsync(input.Id);
+
+            if (entity.CreatorUserId != AbpSession.UserId)
+                throw new UserFriendlyException("No puedes eliminar una solicitud que no te pertenece.");
+
+            if (entity.Estado != CreditStatus.Pendiente)
+                throw new UserFriendlyException("Solo puedes eliminar solicitudes en estado 'Pendiente'.");
+
+            await base.DeleteAsync(input);
+        }
+
     }
 }
