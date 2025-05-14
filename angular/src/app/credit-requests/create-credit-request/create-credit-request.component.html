@@ -27,9 +27,14 @@
     </div>
   </div>
 
-  <button type="submit" class="btn btn-primary" [disabled]="saving">
+  <div class="text-end mt-3">
+  <button type="submit" class="btn btn-primary me-2" [disabled]="saving">
     {{ 'EnviarSolicitud' | localize }}
   </button>
+  <button type="button" class="btn btn-secondary" (click)="cancel()">
+    {{ 'Cancelar' | localize }}
+  </button>
+</div>
 </form>
 
     </div>

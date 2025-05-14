@@ -46,6 +46,10 @@ export class CreateCreditRequestComponent extends AppComponentBase implements On
       this.form.patchValue(result);
     });
   }
+  cancel(): void {
+  this._router.navigate(['/app/credit-requests/mine']);
+}
+
 
   submit(): void {
     if (this.form.invalid) {
