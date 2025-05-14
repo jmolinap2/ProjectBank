@@ -5,7 +5,7 @@ Este proyecto es una solución completa para la gestión de solicitudes de créd
 ## 🧱 Estructura del Proyecto
 
 - /aspnet-core → Backend desarrollado en ASP.NET Core 6 (API REST).
-- /.VSCODE → Frontend SPA desarrollado con Angular 16.
+- /angular → Frontend SPA desarrollado con Angular 16.
 
 ## 🛠 Requisitos
 
@@ -39,13 +39,13 @@ Este proyecto es una solución completa para la gestión de solicitudes de créd
 ### Frontend (angular-app)
 
 1. Entrar a la carpeta:
-   cd angular-app
+   cd angular-
 
 2. Instalar dependencias:
    yarn install --force
 
 3. Ejecutar aplicación Angular:
-   ng serve
+   npm start
 
 ## 🔐 Autenticación
 
@@ -54,8 +54,18 @@ Este proyecto es una solución completa para la gestión de solicitudes de créd
   Authorization: Bearer <token>
 
 ## 📤 Exportación
+Se puede exportar el historial de solicitudes a PDF o Excel.
 
-Opcionalmente se puede exportar el historial de solicitudes a PDF o Excel.
+# Restaurar base de datos, si prefiere con datos ya duardados
+
+1. Abrir SQL Server Management Studio (SSMS)
+2. Clic derecho en "Databases" > Restore Database...
+3. Seleccionar "Device" > Agregar > Buscar `ProjectBankDb.bak`
+4. Seguir el asistente y restaurar
+### 🔐 NOTA
+- Por defecto se incluye el usuario admin:
+1. user:admin
+2. pass:123qwe
 
 ## ✅ Evaluación
 
