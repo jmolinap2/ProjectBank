@@ -121,6 +121,10 @@
     <text name="403PageDescription">You don't have permission to access this resource. Please contact your administrator.</text>
     <text name="403PageButton">Go back to Dashboard</text>
     <text name="Analyst">Analyst</text>
+    <text name="MyCreditRequests">My Credit Requests</text>
+    <text name="CreateCreditRequest">New Credit Request</text>
+    <text name="AnalystRequests">Requests (Analyst)</text>
+    <text name="CreditRequests">Credit Requests</text>
 
   </texts>
 </localizationDictionary>

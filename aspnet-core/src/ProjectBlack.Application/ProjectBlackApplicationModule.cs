@@ -2,6 +2,8 @@
 using Abp.Modules;
 using Abp.Reflection.Extensions;
 using ProjectBlack.Authorization;
+using ProjectBlack.CreditRequests.Dtos;
+using ProjectBlack.CreditRequests;
 
 namespace ProjectBlack;
 
@@ -21,9 +23,12 @@ public class ProjectBlackApplicationModule : AbpModule
 
         IocManager.RegisterAssemblyByConvention(thisAssembly);
 
-        Configuration.Modules.AbpAutoMapper().Configurators.Add(
+        Configuration.Modules.AbpAutoMapper().Configurators.Add(cfg =>
+        {
             // Scan the assembly for classes which inherit from AutoMapper.Profile
-            cfg => cfg.AddMaps(thisAssembly)
-        );
+            cfg.AddMaps(thisAssembly);
+            cfg.CreateMap<CreditRequest, CreditRequestDto>();
+            cfg.CreateMap<CreditRequestDto, CreditRequest>();
+        });
     }
 }

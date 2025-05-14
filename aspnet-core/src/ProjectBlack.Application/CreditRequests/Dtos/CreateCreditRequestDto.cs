@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
 namespace ProjectBlack.CreditRequests.Dtos
 {
     public class CreateCreditRequestDto

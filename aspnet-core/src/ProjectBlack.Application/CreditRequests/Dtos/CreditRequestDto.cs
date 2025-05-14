@@ -1,5 +1,5 @@
 ﻿using Abp.Application.Services.Dto;
-
+using Abp.Domain.Entities.Auditing;
 namespace ProjectBlack.CreditRequests.Dtos
 {
     public class CreditRequestDto : EntityDto<long>
@@ -9,5 +9,7 @@ namespace ProjectBlack.CreditRequests.Dtos
         public decimal IngresoMensual { get; set; }
         public int AntiguedadLaboral { get; set; }
         public string Estado { get; set; }
+        public long? CreatorUserId { get; set; }
+        public string CreatorUserName { get; set; }
     }
 }

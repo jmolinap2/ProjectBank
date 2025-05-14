@@ -4,6 +4,7 @@ import { AppRouteGuard } from '@shared/auth/auth-route-guard';
 
 import { CreateCreditRequestComponent } from './create-credit-request/create-credit-request.component';
 import { MyCreditRequestsComponent } from './my-credit-requests/my-credit-requests.component';
+import { AnalystCreditRequestsComponent } from './analyst-credit-requests/analyst-credit-requests.component';
 
 const routes = [
   {
@@ -16,6 +17,13 @@ const routes = [
     component: MyCreditRequestsComponent,
     canActivate: [AppRouteGuard],
   },
+  {
+  path: 'analyst',
+  component: AnalystCreditRequestsComponent,
+  canActivate: [AppRouteGuard],
+  data: { permission: 'Pages.Analyst' }
+}
+
 ];
 
 @NgModule({
