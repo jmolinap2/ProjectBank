@@ -2,77 +2,59 @@
 
 Este proyecto es una solución completa para la gestión de solicitudes de crédito bancario, dividido en backend y frontend, cumpliendo con los requerimientos técnicos establecidos.
 
-## 🧱 Estructura del Proyecto
+## Estructura del Proyecto
 
-- /aspnet-core → Backend desarrollado en ASP.NET Core 6 (API REST).
+- /aspnet-core → Backend desarrollado en ASP.NET Core 9 (API REST).
 - /angular → Frontend SPA desarrollado con Angular 16.
 
-## 🛠 Requisitos
+## Requisitos
 
-- .NET 6 SDK
+- .NET 9 SDK
 - Node.js 18+
 - Angular CLI
 - SQL Server Express
 
-## 🚀 Configuración y Ejecución
+## Configuración y Ejecución
 
 ### Backend (aspnet-core)
 
-1. **Abrir la carpeta del backend**  
-   En el árbol del explorador, abre la carpeta `aspnet-core`.
+1. Abrir la carpeta del backend (`aspnet-core`).
+2. Restaurar dependencias abriendo `ProjectBlack.sln` en Visual Studio.
+3. Aplicar migraciones desde la consola NuGet:
+   - Seleccionar el proyecto `ProjectBlack.EntityFrameworkCore`.
+   - Ejecutar el comando: `Update-Database`
+4. Ejecutar el backend desde `ProjectBlack.Web.Host`.
 
-2. **Restaurar dependencias**  
-   Abre el archivo `ProjectBlack.sln` con Visual Studio y espera a que se restauren automáticamente los paquetes NuGet.
+### Frontend (angular)
 
-3. **Aplicar migraciones a la base de datos**  
-   - Abre la **Consola del Administrador de paquetes NuGet**:  
-     `Herramientas > Administrador de paquetes NuGet > Consola`.
-   - En la lista desplegable, selecciona el proyecto:  
-     `ProjectBlack.EntityFrameworkCore`.
-   - Ejecuta el comando:
-     ```
-     Update-Database
-     ```
+1. Ingresar a la carpeta `angular`.
+2. Ejecutar: `yarn install --force`
+3. Ejecutar: `npm start`
 
-4. **Ejecutar el backend**  
+## Autenticación
 
-### Frontend (angular-app)
+- Basada en JWT.
 
-1. Entrar a la carpeta:
-   cd angular-
+## Exportación de Datos
 
-2. Instalar dependencias:
-   yarn install --force
+- Las solicitudes pueden exportarse a formato PDF o Excel.
 
-3. Ejecutar aplicación Angular:
-   npm start
+## Restaurar Base de Datos (con datos de ejemplo)
 
-## 🔐 Autenticación
-
-- Se utiliza autenticación basada en JWT.
-- Angular almacena el token y lo envía en el header Authorization:
-  Authorization: Bearer <token>
-
-## 📤 Exportación
-Se puede exportar el historial de solicitudes a PDF o Excel.
-
-# Restaurar base de datos, si prefiere con datos ya duardados
-
-1. Abrir SQL Server Management Studio (SSMS)
+1. Abrir SQL Server Management Studio (SSMS).
 2. Clic derecho en "Databases" > Restore Database...
-3. Seleccionar "Device" > Agregar > Buscar `ProjectBankDb.bak`
-4. Seguir el asistente y restaurar
-### 🔐 NOTA
-- Por defecto se incluye el usuario admin:
-1. user:admin
-2. pass:123qwe
+3. Seleccionar "Device" > Buscar `ProjectBankDb.bak`.
+4. Seguir el asistente para restaurar.
 
-## ✅ Evaluación
+### Usuario por defecto
 
-El sistema incluye:
-- Separación lógica de backend y frontend
-- Código organizado y comentado
-- Evaluación automática de solicitudes
-- Control de roles (Solicitante / Analista)
-- Registro de acciones
+- Usuario: `admin`
+- Contraseña: `123qwe`
 
+## Evaluación
+
+- Separación clara entre backend y frontend.
+- Código organizado y comentado.
+- Evaluación automática de solicitudes.
+- Control de roles: Solicitante y Analista.
+- Registro de acciones del sistema.
