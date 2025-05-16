@@ -58,3 +58,25 @@ Este proyecto es una solución completa para la gestión de solicitudes de créd
 - Evaluación automática de solicitudes.
 - Control de roles: Solicitante y Analista.
 - Registro de acciones del sistema.
+
+## ⚠️ Notas importantes (Actualización post entrega)
+
+> ✅ Después de la entrega se identificó que el rol `Analyst` fue creado correctamente en el proceso de seeding, pero **no se le asignó el permiso `Pages.Analyst`**, necesario para operar el módulo de revisión/aprobación de solicitudes.
+>
+> Esto puede provocar que el módulo no esté visible para los usuarios analistas en instalaciones nuevas sin aplicar la corrección.
+
+### 🛠 Solución para bases existentes
+
+Ejecutar el siguiente script SQL en la base `ProjectBankDb`:
+
+```sql
+
+INSERT INTO AbpPermissions
+(Name, IsGranted, CreationTime, RoleId, TenantId, Discriminator)
+SELECT
+    'Pages.Analyst', 1, GETDATE(), R.Id, R.TenantId, 'RolePermissionSetting'
+FROM AbpRoles R
+WHERE R.Name = 'Analyst' AND NOT EXISTS (
+    SELECT 1 FROM AbpPermissions P
+    WHERE P.RoleId = R.Id AND P.Name = 'Pages.Analyst'
+);

@@ -38,6 +38,7 @@ public class TenantRoleAndUserBuilder
             adminRole = _context.Roles.Add(new Role(_tenantId, StaticRoleNames.Tenants.Admin, StaticRoleNames.Tenants.Admin) { IsStatic = true }).Entity;
             _context.SaveChanges();
         }
+         // Analyst role
         var analystRole = _context.Roles.FirstOrDefault(r => r.TenantId == _tenantId && r.Name == StaticRoleNames.Tenants.Analyst);
         if (analystRole == null)
         {
@@ -72,6 +73,34 @@ public class TenantRoleAndUserBuilder
                     Name = permission.Name,
                     IsGranted = true,
                     RoleId = adminRole.Id
+                })
+            );
+            _context.SaveChanges();
+        }
+
+        // Grant all permissions to analyst role
+
+        var grantedAnalystPermissions = _context.Permissions.IgnoreQueryFilters()
+            .OfType<RolePermissionSetting>()
+            .Where(p => p.TenantId == _tenantId && p.RoleId == analystRole.Id)
+            .Select(p => p.Name)
+            .ToList();
+
+        var analystPermissions = PermissionFinder
+            .GetAllPermissions(new ProjectBlackAuthorizationProvider())
+            .Where(p => p.MultiTenancySides.HasFlag(MultiTenancySides.Tenant) &&
+                        !grantedAnalystPermissions.Contains(p.Name))
+            .ToList();
+
+        if (analystPermissions.Any())
+        {
+            _context.Permissions.AddRange(
+                analystPermissions.Select(permission => new RolePermissionSetting
+                {
+                    TenantId = _tenantId,
+                    Name = permission.Name,
+                    IsGranted = true,
+                    RoleId = analystRole.Id
                 })
             );
             _context.SaveChanges();
